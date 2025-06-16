@@ -15,3 +15,14 @@ class RestaurantPizza(db.Model):
     __table_args__= (
         CheckConstraint('price >= 1 AND price <= 30', name='check_price_range')
     )
+
+    def __repr__(self):
+        return f'<RestaurantPizza ${self.price}>'
+    
+    def to_dict(self):
+        return {
+            'id':self.id,
+            'price':self.price,
+            'pizza':self.pizza.to_dict(),
+            'restaurant': self.restaurant.to_dict()
+        }
