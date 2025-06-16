@@ -1,12 +1,14 @@
 
-from config import Config
+from server.config import Config
 from flask import Flask
 from server.extensions import db, migrate
 
 
 def create_app(config_class=Config):
     app = Flask(__name__)
-    app.config.from_object(config_class)
+
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pizza_restaurant.db'  # or your DB URI
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.init_app(app)
     migrate.init_app(app, db)
