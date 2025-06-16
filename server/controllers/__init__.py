@@ -1,0 +1,4 @@
+# server/controllers/__init__.py
+from server.controllers.restaurant_controller import restaurants_bp
+from server.controllers.pizza_controller import pizzas_bp
+from server.controllers.restaurant_pizza_controller import restaurant_pizzas_bp
