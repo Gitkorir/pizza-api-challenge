@@ -7,13 +7,13 @@ class RestaurantPizza(db.Model):
 
     id=db.Column(db.Integer,primary_key =True)
     price=db.Column(db.Integer, nullable=False)
-    pizza_id=db.Column(db.Integer, db.ForeignKey('pizza.id'),nullable=False)
-    restaurant_id=db.Column(db.Integer,db.ForiegnKey('restaurant.id'), nullable=False)
+    pizza_id=db.Column(db.Integer, db.ForeignKey('pizzas.id'),nullable=False)
+    restaurant_id=db.Column(db.Integer,db.ForeignKey('restaurants.id'), nullable=False)
 
 
     #Price  validation
     __table_args__= (
-        CheckConstraint('price >= 1 AND price <= 30', name='check_price_range')
+        CheckConstraint('price >= 1 AND price <= 30', name='check_price_range'),
     )
 
     def __repr__(self):

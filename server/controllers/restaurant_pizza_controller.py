@@ -1,6 +1,7 @@
 # server/controllers/restaurant_pizza_controller.py
 from flask import Blueprint, jsonify, request
-from server.models import RestaurantPizza, db
+from server.models import RestaurantPizza
+from server.extensions import db
 from sqlalchemy.exc import IntegrityError
 
 restaurant_pizzas_bp = Blueprint('restaurant_pizzas', __name__)

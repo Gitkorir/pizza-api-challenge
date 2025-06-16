@@ -1,6 +1,7 @@
 # server/controllers/restaurant_controller.py
 from flask import Blueprint, jsonify, request
-from server.models import Restaurant, RestaurantPizza, db
+from server.models import Restaurant, RestaurantPizza
+from server.extensions import db
 
 restaurants_bp = Blueprint('restaurants', __name__)
 
