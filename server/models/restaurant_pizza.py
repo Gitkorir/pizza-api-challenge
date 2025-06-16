@@ -1,4 +1,4 @@
-from server.app import db
+from server.extensions import db
 from sqlalchemy import CheckConstraint
 
 class RestaurantPizza(db.Model):

@@ -1,4 +1,4 @@
-from server.app import db
+from server.extensions import db
 
 class Reastaurant(db.Model):
     __tablename__= 'restaurants'
@@ -8,7 +8,7 @@ class Reastaurant(db.Model):
     address=db.Column(db.String(255), nullable=False)
 
     #Relationship
-    restautant_pizzas = db.relationship('restaurant_pizzas',backref='restaurant',cascade='all,delete-orphan')
+    restautant_pizzas = db.relationship('RestaurantPizza',backref='restaurant',cascade='all,delete-orphan')
 
     def __repr__(self):
         return f'<Restaurant {self.name}>'
