@@ -9,3 +9,9 @@ class RestaurantPizza(db.Model):
     price=db.Column(db.Integer, nullable=False)
     pizza_id=db.Column(db.Integer, db.ForeignKey('pizza.id'),nullable=False)
     restaurant_id=db.Column(db.Integer,db.ForiegnKey('restaurant.id'), nullable=False)
+
+
+    #Price  validation
+    __table_args__= (
+        CheckConstraint('price >= 1 AND price <= 30', name='check_price_range')
+    )
